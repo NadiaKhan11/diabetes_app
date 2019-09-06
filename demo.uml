@@ -1,0 +1,12 @@
+@startuml stickman
+actor Nadia
+actor Doctor
+rectangle diabetes_app {
+ Doctor --   (display bsl)
+ (display bsl) -- Nadia 
+ Nadia -- (record bsl)
+ Nadia -- (remind bsl)
+Doctor -- (warn hypo or hyper) 
+(warn hypo or hyper) -- Nadia
+}
+@enduml

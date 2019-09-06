@@ -1,0 +1,22 @@
+<%if !user.nil?%>
+    <%if user.reminders.empty? %>
+        <h1>Create some reminders</h1>
+        <form action="/users/<%=user.id%>/reminders" method="POST">
+            <input type="time" value="09:30" name="morning" />
+            <input type="time" value="12:00" name="afternoon" />
+            <input type="time" value="22:30" name="evening" />
+            <button type="submit">Create Reminders</button>
+        </form>
+    <%else%>
+        <h1>Hello <%=user.name%></h1>
+        <form action="/users/<%=user.id%>/medicalRecords" method="POST">
+            <label>Insert sugar level reading</label>
+            <input type="number" step="0.1" name="sugar_levels" required>
+            <button type="submit">Record reading</button>
+        </form>
+    <%end%>
+<%end%>
+
+<%if user.nil?%>
+    <%=erb :create_user%>
+<%end%>

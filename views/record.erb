@@ -1,0 +1,14 @@
+<div class="ct-chart"></div>
+<div>Record should be above</div>
+<script>
+    const options = {
+        stretch: false,
+        fullWidth: true,
+        chartPadding: { right: 40 }
+    }
+    const data = {
+        labels: <%= records.map { |record| record.date } %>,
+        series: [ <%= records.map { |record| record.sugar_levels } %> ]
+    }
+    new Chartist.Line('.ct-chart', data, options);
+</script>
